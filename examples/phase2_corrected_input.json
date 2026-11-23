@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "case_id": "NVDA-DEMO-001",
+  "constraint_bundle_id": "bundle-626431d2e24981c30013d3e2ab87d979b59b54aef55a45dfa50ce7e5349c41bd",
+  "context_hash": "df0e71794885fa1b6aafa2ad08da71d6498902fe29c353f14eeef110d319677c",
+  "proposal": {
+    "proposal_id": "PROPOSAL-001",
+    "version": 2,
+    "market_snapshot_id": "SIM-EURUSD-001",
+    "legs": [
+      {
+        "trade_id": "NEW-001",
+        "product": "deliverable_forward",
+        "currency": "EUR",
+        "direction": "BUY_BASE",
+        "notional": 1500000,
+        "maturity_date": "2027-01-22",
+        "forward_rate": 1.1,
+        "fee_usd": 1000
+      }
+    ]
+  }
+}

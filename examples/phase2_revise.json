@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "case_id": "NVDA-DEMO-001",
+  "proposal_id": "PROPOSAL-001",
+  "proposal_version": 1,
+  "proposal_hash": "076589c713e23a5fbd7d14f3bf8b1dce4145f76747f38ddde3dd4f4dfcb40bc9",
+  "constraint_bundle_id": "bundle-626431d2e24981c30013d3e2ab87d979b59b54aef55a45dfa50ce7e5349c41bd",
+  "policy_version": "DEMO-POLICY-2026-11-v1",
+  "evaluated_at": "2026-11-23T02:01:00Z",
+  "decision": "REVISE",
+  "review_attempt": 1,
+  "approval_scope": "DEMO_POLICY_ONLY",
+  "execution_allowed": false,
+  "checks": [
+    {
+      "code": "MAX_HEDGE_RATIO",
+      "status": "REVISE",
+      "owner": "STRATEGY",
+      "message": "既有與新增合約合計超過名目本金避險上限",
+      "actual": 0.9,
+      "limit": 0.8
+    },
+    {
+      "code": "STRESS_LOSS",
+      "status": "PASS",
+      "owner": "RISK",
+      "message": "到期情境損失檢查；非 VaR，未計折現或期間保證金",
+      "actual": 34000.0,
+      "limit": 80000
+    }
+  ],
+  "stress_scenarios": [
+    {
+      "shock": -0.1,
+      "spot": 0.99,
+      "exposure_pnl_usd": 330000.0,
+      "hedge_pnl_usd": -297000.0,
+      "fees_usd": 1000.0,
+      "loss_usd": 0.0
+    },
+    {
+      "shock": 0.1,
+      "spot": 1.21,
+      "exposure_pnl_usd": -330000.0,
+      "hedge_pnl_usd": 297000.0,
+      "fees_usd": 1000.0,
+      "loss_usd": 34000.0
+    }
+  ],
+  "external_reviews": [
+    {
+      "area": "US_DERIVATIVES",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "cftc",
+        "ecfr"
+      ]
+    },
+    {
+      "area": "SANCTIONS",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "ofac"
+      ]
+    },
+    {
+      "area": "US_TAX",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "tax_cfr",
+        "irs"
+      ]
+    },
+    {
+      "area": "US_GAAP",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "fasb"
+      ]
+    },
+    {
+      "area": "CROSS_BORDER",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "esma_emir"
+      ]
+    }
+  ],
+  "next_action": "REOPTIMIZE"
+}

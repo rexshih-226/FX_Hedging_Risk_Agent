@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://risk-agent.local/schemas/common.json",
+  "$defs": {
+    "trade": {
+      "type": "object",
+      "properties": {
+        "trade_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "product": {
+          "enum": [
+            "deliverable_forward"
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "direction": {
+          "enum": [
+            "BUY_BASE",
+            "SELL_BASE"
+          ]
+        },
+        "notional": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "maturity_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "forward_rate": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "fee_usd": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "trade_id",
+        "product",
+        "currency",
+        "direction",
+        "notional",
+        "maturity_date",
+        "forward_rate",
+        "fee_usd"
+      ],
+      "additionalProperties": false
+    },
+    "check": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "REVISE",
+            "NEEDS_DATA",
+            "HUMAN_REVIEW"
+          ]
+        },
+        "owner": {
+          "enum": [
+            "RISK",
+            "STRATEGY",
+            "ERP",
+            "FX",
+            "ERP_FX",
+            "HUMAN"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actual": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "limit": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "status",
+        "owner",
+        "message",
+        "actual",
+        "limit"
+      ],
+      "additionalProperties": false
+    },
+    "external": {
+      "type": "object",
+      "properties": {
+        "area": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "NOT_IMPLEMENTED"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "area",
+        "status",
+        "source_ids"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

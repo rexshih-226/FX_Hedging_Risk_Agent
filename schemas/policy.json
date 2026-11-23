@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://risk-agent.local/schemas/policy.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "APPROVED_DEMO"
+    },
+    "source_id": {
+      "const": "simulation_policy"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effective_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "effective_to": {
+      "type": "string",
+      "format": "date"
+    },
+    "max_hedge_ratio": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "max_stress_loss_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "spot_shocks": {
+      "const": [
+        -0.1,
+        0.1
+      ]
+    },
+    "max_market_age_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_context_age_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "bundle_ttl_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_review_attempts": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "version",
+    "status",
+    "source_id",
+    "description",
+    "effective_from",
+    "effective_to",
+    "max_hedge_ratio",
+    "max_stress_loss_usd",
+    "spot_shocks",
+    "max_market_age_seconds",
+    "max_context_age_seconds",
+    "bundle_ttl_seconds",
+    "max_review_attempts"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://risk-agent.local/schemas/phase2_input.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraint_bundle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "proposal": {
+      "type": "object",
+      "properties": {
+        "proposal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "market_snapshot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "legs": {
+          "type": "array",
+          "items": {
+            "$ref": "https://risk-agent.local/schemas/common.json#/$defs/trade"
+          }
+        }
+      },
+      "required": [
+        "proposal_id",
+        "version",
+        "market_snapshot_id",
+        "legs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "case_id",
+    "constraint_bundle_id",
+    "context_hash",
+    "proposal"
+  ],
+  "additionalProperties": false
+}

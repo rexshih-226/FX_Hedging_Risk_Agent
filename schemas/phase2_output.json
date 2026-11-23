@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://risk-agent.local/schemas/phase2_output.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposal_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "proposal_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "constraint_bundle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluated_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "(Z|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "decision": {
+      "enum": [
+        "APPROVE",
+        "REVISE",
+        "NEEDS_DATA",
+        "HUMAN_REVIEW"
+      ]
+    },
+    "review_attempt": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "approval_scope": {
+      "const": "DEMO_POLICY_ONLY"
+    },
+    "execution_allowed": {
+      "const": false
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "$ref": "https://risk-agent.local/schemas/common.json#/$defs/check"
+      }
+    },
+    "stress_scenarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shock": {
+            "type": "number"
+          },
+          "spot": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "exposure_pnl_usd": {
+            "type": "number"
+          },
+          "hedge_pnl_usd": {
+            "type": "number"
+          },
+          "fees_usd": {
+            "type": "number",
+            "minimum": 0
+          },
+          "loss_usd": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "shock",
+          "spot",
+          "exposure_pnl_usd",
+          "hedge_pnl_usd",
+          "fees_usd",
+          "loss_usd"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "external_reviews": {
+      "type": "array",
+      "items": {
+        "$ref": "https://risk-agent.local/schemas/common.json#/$defs/external"
+      },
+      "minItems": 5
+    },
+    "next_action": {
+      "enum": [
+        "DEMO_COMPLETE",
+        "REOPTIMIZE",
+        "REFRESH_CONTEXT",
+        "ESCALATE"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "case_id",
+    "proposal_id",
+    "proposal_version",
+    "proposal_hash",
+    "constraint_bundle_id",
+    "policy_version",
+    "evaluated_at",
+    "decision",
+    "review_attempt",
+    "approval_scope",
+    "execution_allowed",
+    "checks",
+    "stress_scenarios",
+    "external_reviews",
+    "next_action"
+  ],
+  "additionalProperties": false
+}

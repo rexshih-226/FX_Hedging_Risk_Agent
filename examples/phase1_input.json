@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "case_id": "NVDA-DEMO-001",
+  "mode": "DEMO",
+  "as_of": "2026-11-23T02:00:00Z",
+  "entity": {
+    "entity_id": "NVDA-US-DEMO",
+    "name": "NVIDIA-background simulated treasury",
+    "jurisdiction": "US",
+    "tax_residency": "US",
+    "functional_currency": "USD",
+    "accounting_basis": "US_GAAP"
+  },
+  "counterparty": {
+    "counterparty_id": "BANK-DEMO",
+    "name": "Simulated US bank",
+    "jurisdiction": "US",
+    "branch": "US-DEMO"
+  },
+  "exposure": {
+    "exposure_id": "EXP-EUR-001",
+    "currency": "EUR",
+    "exposure_amount": -3000000,
+    "maturity_date": "2027-01-22",
+    "purpose": "OPERATING_EXPENSE"
+  },
+  "existing_hedges": [
+    {
+      "trade_id": "OLD-001",
+      "product": "deliverable_forward",
+      "currency": "EUR",
+      "direction": "BUY_BASE",
+      "notional": 900000,
+      "maturity_date": "2027-01-22",
+      "forward_rate": 1.1,
+      "fee_usd": 0
+    }
+  ],
+  "market": {
+    "snapshot_id": "SIM-EURUSD-001",
+    "as_of": "2026-11-23T02:00:00Z",
+    "base_currency": "EUR",
+    "quote_currency": "USD",
+    "spot": 1.1
+  }
+}

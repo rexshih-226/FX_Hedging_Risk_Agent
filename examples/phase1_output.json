@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "case_id": "NVDA-DEMO-001",
+  "status": "PREPARED",
+  "constraint_bundle_id": "bundle-626431d2e24981c30013d3e2ab87d979b59b54aef55a45dfa50ce7e5349c41bd",
+  "context_hash": "df0e71794885fa1b6aafa2ad08da71d6498902fe29c353f14eeef110d319677c",
+  "policy_version": "DEMO-POLICY-2026-11-v1",
+  "policy_hash": "7d9ea9e1d9a795c06b5b57021b2a8a8b73134e7b5e7de0577a3e77683659acf3",
+  "created_at": "2026-11-23T02:01:00Z",
+  "valid_until": "2026-11-23T02:15:00Z",
+  "approval_scope": "DEMO_POLICY_ONLY",
+  "execution_allowed": false,
+  "constraints": {
+    "exposure_id": "EXP-EUR-001",
+    "max_hedge_ratio": 0.8,
+    "hedge_ratio_basis": "GROSS_NOTIONAL",
+    "include_existing_hedges": true,
+    "existing_notional": 900000.0,
+    "max_new_notional": 1500000.0,
+    "notional_currency": "EUR",
+    "allowed_products": [
+      "deliverable_forward"
+    ],
+    "required_direction": "BUY_BASE",
+    "required_maturity_date": "2027-01-22",
+    "max_stress_loss_usd": 80000,
+    "spot_shocks": [
+      -0.1,
+      0.1
+    ],
+    "market_snapshot_id": "SIM-EURUSD-001"
+  },
+  "checks": [],
+  "external_reviews": [
+    {
+      "area": "US_DERIVATIVES",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "cftc",
+        "ecfr"
+      ]
+    },
+    {
+      "area": "SANCTIONS",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "ofac"
+      ]
+    },
+    {
+      "area": "US_TAX",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "tax_cfr",
+        "irs"
+      ]
+    },
+    {
+      "area": "US_GAAP",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "fasb"
+      ]
+    },
+    {
+      "area": "CROSS_BORDER",
+      "status": "NOT_IMPLEMENTED",
+      "source_ids": [
+        "esma_emir"
+      ]
+    }
+  ],
+  "next_action": "SEND_TO_STRATEGY"
+}

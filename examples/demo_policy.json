@@ -1,0 +1,18 @@
+{
+  "version": "DEMO-POLICY-2026-11-v1",
+  "status": "APPROVED_DEMO",
+  "source_id": "simulation_policy",
+  "description": "作業模擬政策；不是 NVIDIA 真實政策、董事會決議或法定比例。",
+  "effective_from": "2026-01-01",
+  "effective_to": "2027-01-01",
+  "max_hedge_ratio": 0.8,
+  "max_stress_loss_usd": 80000,
+  "spot_shocks": [
+    -0.1,
+    0.1
+  ],
+  "max_market_age_seconds": 900,
+  "max_context_age_seconds": 3600,
+  "bundle_ttl_seconds": 900,
+  "max_review_attempts": 3
+}
